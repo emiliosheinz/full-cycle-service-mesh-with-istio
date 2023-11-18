@@ -61,3 +61,15 @@ Istio is an open-source project that implements a service mesh aiming to reduce 
 ### K3d
 
 K3d is a lightweight wrapper to run k3s (Rancher Lab’s minimal Kubernetes distribution) in docker. It makes it very easy to create single and multi-node k3s clusters in docker, e.g. for local development on Kubernetes.
+
+### Gateway
+
+Manages incoming and outgoing traffic. It works on layers 4-6, ensuring port, host, and TLS management. It is directly connected to a Virtual Service that will be responsible for routing.
+
+### Virtual Service
+
+A Virtual Service allows you to configure how requests will be routed to a service. It has a series of rules that, when applied, will ensure that the request is directed to the correct destination.
+
+### Destination Rules
+
+Destination Rules are used to configure the behavior of the traffic that reaches a service. It is possible to configure the load balancing algorithm, timeouts, and circuit breakers.
