@@ -34,10 +34,10 @@ The following steps will guide you through the process of running the applicatio
     kubectl label namespace default istio-injection=enabled
     ```
 
-1. Create Kubernetes deployment
+1. Apply Kubertenes resources
 
     ```bash
-    kubectl apply -f deployment.yaml
+    kubectl apply -f .
     ```
 
 1. Add any addons you want to the cluster. Example:
@@ -47,6 +47,37 @@ The following steps will guide you through the process of running the applicatio
     kubectl apply -f https://raw.githubusercontent.com/istio/istio/release-1.20/samples/addons/grafana.yaml && \
     kubectl apply -f https://raw.githubusercontent.com/istio/istio/release-1.20/samples/addons/kiali.yaml    
     ```
+
+1. Create Fortio deployment
+
+    ```bash
+    kubectl apply -f https://raw.githubusercontent.com/istio/istio/release-1.20/samples/httpbin/sample-client/fortio-deploy.yaml
+    ```
+
+
+## 🔥 Sending Traffic to the Cluster
+
+In order to make it easier to send traffic to the cluster, we are gonna use Fortio. Fortio is a load testing tool that can be used to send traffic to a specific endpoint.
+
+1. Export the Fortio pod into a variable
+
+    ```bash
+    export FORTIO_POD=$(kubectl get pod -lapp=fortio -o 'jsonpath={.items[0].metadata.name}')
+    ```
+
+1. Send traffic to the cluster
+
+    ```bash
+    kubectl exec "$FORTIO_POD" -c fortio -- fortio load -c 2 -qps 0 -t 200s -loglevel Warning http://nginx-service:8000
+    ```
+
+## 📊 Monitoring
+
+To access Kiali's dashboard, run the following command:
+
+```bash
+istioctl dashboard kiali
+```
 
 ## 📚 Definitions
 
