@@ -1,4 +1,4 @@
-# full-cycle-service-mesh-with-istio
+# Full Cycle Service Mesh with Istio
 
 This repository holds all the code and notes produced during the Service Mesh with Istio module of the Full Cycle course.
 
