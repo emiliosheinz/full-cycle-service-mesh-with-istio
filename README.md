@@ -10,6 +10,8 @@ The following steps will guide you through the process of running the applicatio
 
 1. Install [Docker](https://docs.docker.com)
 
+1. Install [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
+
 1. Install [k3d](https://k3d.io/)
 
 1. Create the cluster with `k3d cluster create`
@@ -18,7 +20,25 @@ The following steps will guide you through the process of running the applicatio
 k3d cluster create -p "8000:30000@loadbalancer" --agents 2
 ```
 
-1. Install [Istio](https://istio.io)
+1. Install [istioctl](https://istio.io)
+
+1. Install Istio into the cluster
+
+```bash
+istioctl install -y
+```
+
+1. Label the default namespace to enable automatic sidecar injection
+
+```bash
+kubectl label namespace default istio-injection=enabled
+```
+
+1. Create Kubernetes deployment
+
+```bash
+kubectl apply -f deployment.yaml
+```
 
 ## 📚 Definitions
 
