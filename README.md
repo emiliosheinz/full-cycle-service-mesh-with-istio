@@ -16,29 +16,37 @@ The following steps will guide you through the process of running the applicatio
 
 1. Create the cluster with `k3d cluster create`
 
-```bash
-k3d cluster create -p "8000:30000@loadbalancer" --agents 2
-```
+    ```bash
+    k3d cluster create -p "8000:30000@loadbalancer" --agents 2
+    ```
 
 1. Install [istioctl](https://istio.io)
 
 1. Install Istio into the cluster
 
-```bash
-istioctl install -y
-```
+    ```bash
+    istioctl install -y
+    ```
 
 1. Label the default namespace to enable automatic sidecar injection
 
-```bash
-kubectl label namespace default istio-injection=enabled
-```
+    ```bash
+    kubectl label namespace default istio-injection=enabled
+    ```
 
 1. Create Kubernetes deployment
 
-```bash
-kubectl apply -f deployment.yaml
-```
+    ```bash
+    kubectl apply -f deployment.yaml
+    ```
+
+1. Add any addons you want to the cluster. Example:
+
+    ```bash
+    kubectl apply -f https://raw.githubusercontent.com/istio/istio/release-1.20/samples/addons/prometheus.yaml && \
+    kubectl apply -f https://raw.githubusercontent.com/istio/istio/release-1.20/samples/addons/grafana.yaml && \
+    kubectl apply -f https://raw.githubusercontent.com/istio/istio/release-1.20/samples/addons/kiali.yaml    
+    ```
 
 ## 📚 Definitions
 
