@@ -104,3 +104,11 @@ A Virtual Service allows you to configure how requests will be routed to a servi
 ### Destination Rules
 
 Destination Rules are used to configure the behavior of the traffic that reaches a service. It is possible to configure the load balancing algorithm, timeouts, and circuit breakers.
+
+### Consistent Hash
+
+On Istio consistent Hash is a load balancing algorithm that uses the request's source IP address or Cookie to determine which instance will receive the request. This ensures that the same source IP or Cookie address will always be directed to the same instance. The downside of this algorithm is that it can cause an imbalance in the number of requests per instance that way overloading a single instance for example. 
+
+### Fault Injection
+
+Fault Injection is a technique used to test the resilience of a system. It consists of injecting failures into the system to test how it behaves. Istio allows you to inject delays, aborts, and even HTTP errors.
