@@ -112,3 +112,7 @@ On Istio consistent Hash is a load balancing algorithm that uses the request's s
 ### Fault Injection
 
 Fault Injection is a technique used to test the resilience of a system. It consists of injecting failures into the system to test how it behaves. Istio allows you to inject delays, aborts, and even HTTP errors.
+
+### Circuit Breaker
+
+Circuit Breaker is a technique used to prevent cascading failures. It consists of monitoring the number of errors that occur in a service and, if it exceeds a certain threshold, the circuit is opened and the requests are no longer sent to that service. This prevents the service from becoming overloaded and causing a cascade of failures on all services that depend on it.
