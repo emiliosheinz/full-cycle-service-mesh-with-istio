@@ -2,7 +2,7 @@
 
 This repository holds all the code and notes produced during the Service Mesh with Istio module of the Full Cycle course.
 
-## 🛠️ Running Locally 
+## Running Locally 
 
 The following steps will guide you through the process of running the application locally. Make sure to check the prerequisites before starting.
 
@@ -55,7 +55,7 @@ The following steps will guide you through the process of running the applicatio
     ```
 
 
-## 🔥 Sending Traffic to the Cluster
+## Sending Traffic to the Cluster
 
 In order to make it easier to send traffic to the cluster, we are gonna use Fortio. Fortio is a load testing tool that can be used to send traffic to a specific endpoint.
 
@@ -79,7 +79,7 @@ To access Kiali's dashboard, run the following command:
 istioctl dashboard kiali
 ```
 
-## 📚 Definitions
+## Definitions
 
 ### Service Mesh
 
