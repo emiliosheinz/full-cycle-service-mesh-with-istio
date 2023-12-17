@@ -71,7 +71,7 @@ In order to make it easier to send traffic to the cluster, we are gonna use Fort
     kubectl exec "$FORTIO_POD" -c fortio -- fortio load -c 2 -qps 0 -t 200s -loglevel Warning http://nginx-service:8000
     ```
 
-## 📊 Monitoring
+## Monitoring
 
 To access Kiali's dashboard, run the following command:
 
